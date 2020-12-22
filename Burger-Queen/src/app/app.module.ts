@@ -9,6 +9,10 @@ import { ItemMenuComponent } from './component/item-menu/item-menu.component';
 import { ResumenItemComponent } from './component/resumen-item/resumen-item.component';
 
 
+// NUEVO
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +24,9 @@ import { ResumenItemComponent } from './component/resumen-item/resumen-item.comp
   imports: [
     BrowserModule,
     AppRoutingModule
-  ],
+  ], 
+
+
   providers: [],
   bootstrap: [AppComponent]
 })
