@@ -7,6 +7,7 @@ import { FooterComponent } from './component/footer/footer.component';
 import { NavBarComponent } from './component/nav-bar/nav-bar.component';
 import { ItemMenuComponent } from './component/item-menu/item-menu.component';
 import { ResumenItemComponent } from './component/resumen-item/resumen-item.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ResumenItemComponent } from './component/resumen-item/resumen-item.comp
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
