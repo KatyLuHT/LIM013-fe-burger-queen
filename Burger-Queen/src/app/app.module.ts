@@ -8,6 +8,11 @@ import { NavBarComponent } from './component/nav-bar/nav-bar.component';
 import { ItemMenuComponent } from './component/item-menu/item-menu.component';
 import { ResumenItemComponent } from './component/resumen-item/resumen-item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './view/home/home.component';
+import { OrdersComponent } from './view/orders/orders.component';
+import { OrderDetailComponent } from './view/order-detail/order-detail.component';
+import { ReadyOrdersComponent } from './view/ready-orders/ready-orders.component';
+import { HistoryOrdersComponent } from './view/history-orders/history-orders.component';
 
 
 @NgModule({
@@ -16,7 +21,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FooterComponent,
     NavBarComponent,
     ItemMenuComponent,
-    ResumenItemComponent
+    ResumenItemComponent,
+    HomeComponent,
+    OrdersComponent,
+    OrderDetailComponent,
+    ReadyOrdersComponent,
+    HistoryOrdersComponent,
   ],
   imports: [
     BrowserModule,
