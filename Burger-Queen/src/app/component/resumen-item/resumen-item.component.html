@@ -1,98 +1,78 @@
 <h2 class="titulo">Resumen de pedido</h2>
-<!-- <table>
+<table class="detail">
   <tr>
-    <td>Cliente:</td>
-    <td>Maria Paula</td>
-    <th>N°: 001</th>
+    <td class="items">Cliente:</td>
+    <td class="items">Maria Paula</td>
+    <td class="order"><strong>N°: 001</strong></td>
   </tr>
   <tr>
-    <td>Monto total: </td>
-    <td>  S/. 41.00</td>
+    <td class="items">Monto total: </td>
+    <td class="items"> S/. 7.00</td>
   </tr>
 
   <br>
-</table> -->
+</table>
 
-  <table>
-    <tr>
-      <th>Item</th>
-      <th>Producto</th>
-      <th>Cantidad</th>
-      <th>Total</th>
-    </tr>
-    <tr>
-      <td> 01 </td>
-      <td> cafe con leche</td>
-      <td class="contador">
-        <tr>
-          <td> <button id="add" class="fas fa-plus"></button></td>
-          <td>2</td>
-          <td> <button id="reduce" class="fas fa-minus"></button></td>
-        </tr>
-      </td>
-      <td class="contador"> 
-        <tr>
-          <td>S/7.00</td>
-          <td><button id="delete" class="fas fa-trash-alt"></button></td>
-          </tr>
-      </td>
-    </tr>
-
-  </table>
-
-<!-- 
-<table>
-  <tr>
-
-   <td>
-     <tr>
-       <td>1</td>
-       <td>2</td>
-       <td>3</td>
-       <td>4</td>
-     </tr>
-
-   </td>
-   <td>cafe con leche</td>
-   <td> <button id="add" class="fas fa-plus"></button></td>
-   <td>4</td>
-   <td><button id="reduce" class="fas fa-minus"></button></td>
-   <tr>
-    <td>S/. 7.00</td>
-    <td><button id="delete" class="fas fa-trash-alt"></button></td>
-    </tr>
-   <td>S/. 7.00</td>
-   <td> <button id="delete" class="fas fa-trash-alt"></button></td>
-
-
-  </tr>
-</table> -->
-
-
-
-
-
-<!-- <table id="customers">
+<table  class="products">
   <tr>
     <th>Item</th>
     <th>Producto</th>
     <th>Cantidad</th>
     <th>Total</th>
-    <th>.</th>
+  </tr>
+  <!-- creamos variable  let data tendra valor por cada elemento de array products -->
+  <!-- ngfor recorrido de products -->
+  <tr *ngFor="let data of products">
+  <td>{{data.item}}</td>
+  <td>{{data.product}}</td>
+  <td class="counter">
+    <tr>
+      <!-- cada vez que escuches un click realiza la función addProducts(data.item)-->
+      <td> <button (click)= "addProducts(data.item)" (click)="subtotal(data.item)" (click)="hallarTotal()" id="add" class="fas fa-plus"></button></td> 
+      <td>{{data.quantity}}</td>
+      <td> <button (click)="reduceProducts(data.item)" (click)="subtotal(data.item)" (click)="hallarTotal()" id="reduce" class="fas fa-minus"></button></td>
+    </tr>
+    </td>
+  <td >{{data.total}} </td>
+  <td><button  id="delete" class="fas fa-trash-alt"></button></td>
   </tr>
   <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="total">S/.{{total}}</td>
+  </tr> 
+  <!-- <td><button (click)="deleteUser(data.id)">delete</button></td> -->
+
+  <!-- <tr>
     <td> 01 </td>
     <td> cafe con leche</td>
-    <td class="contador">
-      <button id="add" class="fas fa-plus"></button>
-      <p> 1 </p> 
-      <button id="reduce" class="fas fa-minus"></button>
-    </td>
-    <td class="contador2"> 
-      <p>S/. 7.00</p>      
-    </td>
-    <td>
-      <button id="delete" class="fas fa-trash-alt"></button>
-    </td>
+  <td class="counter">
+  <tr>
+    <td> <button (click)= "addProducts()" id="add" class="fas fa-plus"></button></td>
+    <td>  {{nQuantity}}</td>
+    <td> <button (click)="reduceProducts()"id="reduce" class="fas fa-minus"></button></td>
   </tr>
-</table> -->
+  </td>
+  <td class="counter">
+    <tr>
+      <td>S/7.00</td>
+      <td><button  id="delete" class="fas fa-trash-alt"></button></td>
+    </tr>
+  </td>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="total">S/ 41.00</td>
+    </tr> -->
+</table>
+
+<!-- La <th>Celdas de encabezado: contiene información de encabezado (creada con el <th>elemento)
+    Celdas de datos: contiene datos (creados con el elemento <td> )
+  La <td>etiqueta define una celda de datos estándar en una tabla HTML. columnas
+  La <tr>etiqueta define una fila en una tabla HTML. -->
+
+
+
+
