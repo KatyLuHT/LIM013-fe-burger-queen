@@ -1,9 +1,9 @@
-<h2   class="titulo">Resumen de pedido</h2>
+<h2 class="titulo">Resumen de pedido</h2>
 <table class="detail">
   <tr>
     <td class="items">Cliente:</td>
     <td class="items">Maria Paula</td>
-    <td class="order"><strong>N°: 001</strong></td>
+    <td class="N-order"><strong>N°: 001</strong></td>
   </tr>
   <tr>
     <td class="items">Monto total: </td>
@@ -13,43 +13,56 @@
   <br>
 </table>
 
-<table  class="products">
+<table class="products">
   <tr>
     <th>Item</th>
     <th>Producto</th>
     <th>Cantidad</th>
-    <th>Total</th>
+    <th>SubTotal</th>
+    <th> Total</th>
   </tr>
+  <!-- primera fila de productos -->
+
   <!-- creamos variable  let data tendra valor por cada elemento de array products -->
   <!-- ngfor recorrido de products -->
   <tr *ngFor="let data of products">
-  <td>{{data.item}}</td>
-  <td>{{data.product}}</td>
-  <td class="counter">
-    <tr>
-      <!-- cada vez que escuches un click realiza la función addProducts(data.item)-->
-      <td> <button (click)= "addProducts(data.item)"  id="add" class="fas fa-plus"></button></td> 
-      <td>{{data.quantity}}</td>
-      <td> <button (click)="reduceProducts(data.item)"  id="reduce" class="fas fa-minus"></button></td>
-    </tr>
-    </td>
-  <td >{{data.subtotal}} </td>
-  <td><button  (click)="deleteRow(data.item)"id="delete" class="fas fa-trash-alt"></button></td>
+    <td>{{data.item}}</td>
+    <td>{{data.product}}</td>
+
+  <td>
+  <tr>
+    <!-- cada vez que escuches un click realiza la función addProducts(data.item)-->
+    <td> <button (click)="addProducts(data.item)" id="add" class="fas fa-plus"></button></td>
+    <td>{{data.quantity}}</td>
+    <td> <button (click)="reduceProducts(data.item)" id="reduce" class="fas fa-minus"></button></td>
+    <!-- <td>{{data.unitValue}}</td> -->
   </tr>
+  </td>
+
+  <td class="unitValue">{{data.unitValue}}.00</td>
+  <td>
+    <tr>
+  <td>{{data.subtotal}}.00</td>
+  <td><button (click)="deleteRow(data.item)" id="delete" class="fas fa-trash-alt"></button></td>
+</tr>
+</td>
+
+
+
+  </tr>
+
+  <!-- segunda fila -->
   <tr>
     <td></td>
     <td></td>
     <td></td>
+    <td><strong>Total</strong></td>
     <td class="total">S/.{{total}}</td>
-  </tr> 
- 
+  </tr>
+
 </table>
 
 <!-- La <th>Celdas de encabezado: contiene información de encabezado (creada con el <th>elemento)
     Celdas de datos: contiene datos (creados con el elemento <td> )
   La <td>etiqueta define una celda de datos estándar en una tabla HTML. columnas
   La <tr>etiqueta define una fila en una tabla HTML. -->
-
-
-
-

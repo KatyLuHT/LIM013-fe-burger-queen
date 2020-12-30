@@ -6,9 +6,12 @@
 .detail{
     width: 40%;
     margin: auto;
+    overflow-x: auto;
+    font-size: 26px;
+    white-space: normal;
 }
 
-.order{
+.N-order{
     color: #21388B;
 
 }
@@ -22,18 +25,14 @@
     margin: auto;
 
 }
- th {
+ th,td{
     font-size: 26px;
-    align-items:center;
     text-align: center;
+  
 
 }
-td{
-    font-size: 26px;
-    align-items:center;
-    text-align: center;
-    
-}
+
+
     button{
         border-radius: 30% ;
         color:#21388B;
@@ -54,13 +53,17 @@ td{
 // ----------------------------Desktop------------------------------//
     @media screen and (max-width: 1024px) {
 
-
+.detail{
+    overflow-x: auto;
+    font-size: 26px;
+    white-space: normal;
+}
     .products{
     width: 50%;
     margin: auto;
     }
     td,th{
-    width: 50%;
+    width: 20%;
     }
 
     }
@@ -72,13 +75,12 @@ td{
         border: 3px solid #21388B;
     }
     .total{
-        width:20%;
+        width:15%;
         background-color:  #FDB827;
         border-radius: 8px ;
 
     }
    
-
 
 
 
