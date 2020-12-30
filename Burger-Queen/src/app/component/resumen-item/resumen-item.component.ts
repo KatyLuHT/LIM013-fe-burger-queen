@@ -8,43 +8,72 @@ import { ItemMenuComponent } from '../item-menu/item-menu.component';
 })
 export class ResumenItemComponent { // OJO dentro de clase todo las propiedades y funciones
   // variable que contiene cantidad de producto}
-  total:number=0;
-  products=[
-    {item:1,product:'cafe con leche',quantity:2, valorUnitario:5.00,total:10.00},
-    {item:2,product:'cafe americano',quantity:1, valorUnitario:5.00,total:5.00 },
-    {item:3,product:'jugo natural',quantity:1, valorUnitario:7.00,total:7.00 },
-    {item:4,product:'sandwich de jamon y queso',quantity:2,valorUnitario:10.00,total:20.00 }
+  total: number = 0;
+  products = [
+    { item: 1, product: 'cafe con leche', quantity: 2, unitValue: 5.00, subtotal: 10.00 },
+    { item: 2, product: 'cafe americano', quantity: 1, unitValue: 5.00, subtotal: 5.00 },
+    { item: 3, product: 'jugo natural', quantity: 1, unitValue: 7.00, subtotal: 7.00 },
+    { item: 4, product: 'sandwich de jamon y queso', quantity: 2, unitValue: 10.00, subtotal: 20.00 }
   ]
 
-  // funcion incremento y decremento
-  addProducts(item:number) { 
-    this.total =0;
-    this.products[item-1].quantity++;
+  // funcion que se ejecuta por defecto
+  constructor() {
+    this.calculateTotal();
   }
-  reduceProducts(item:number) {
-    this.total =0;
-    if(this.products[item-1].quantity>0){
-        this.products[item-1].quantity--;
+
+  // funcion incremento y decremento
+  addProducts(_item: number) {
+    this.products[_item - 1].quantity++;
+    this.calculateSubtotal(_item);
+  }
+
+  reduceProducts(_item: number) {
+    // solo ingresa si cantidad es mayor a 1
+    if (this.products[_item - 1].quantity > 1) {
+      this.products[_item - 1].quantity--;
+      this.calculateSubtotal(_item);
     }
   }
 
-  subtotal(item:number){
-    //console.log("subtotal");
-    //console.log(this.products[item-1].total = this.products[item-1].quantity*this.products[item-1].valorUnitario);
-    this.products[item-1].total = this.products[item-1].quantity*this.products[item-1].valorUnitario;
+  calculateSubtotal(item: number) {
+    this.products[item - 1].subtotal = this.products[item - 1].quantity * this.products[item - 1].unitValue;
+    this.calculateTotal();
   }
-hallarTotal(){
-  this.products.forEach(element => {
-    console.log("quantitit "+element.quantity);
-    console.log("valor"+element.valorUnitario);
-    this.total=(element.quantity*element.valorUnitario)+this.total;
-    console.log(this.total);
-  });
-}
 
-  // deleteRow(i:number){
-  //   document.getElementById("myTable").deleteRow(i);
-  // }
+  calculateTotal() {
+    //inicializa en 0
+    this.total = 0;
+    this.products.forEach(element => {
+      this.total = (element.quantity * element.unitValue) + this.total;
+    });
+  }
+
+  updateItem(){
+    let newItem=1;
+    this.products.forEach(element => { 
+      element.item = newItem;// doy valor de new item
+      newItem++;
+    });
+  }
+
+  deleteRow(_item: number) {
+    // for(let i = 0; i < this.products.length; ++i){
+    //     if (this.products[i].item=== item) {
+    //         this.products.splice(i,1);// i posicion y 1 cantidad de elemento eliminar
+    //     }
+    // }
+    this.products.forEach(element => {
+      if (element.item === _item) {
+        this.products.splice(this.products.indexOf(element), 1);
+      }
+    });
+    this.calculateTotal();
+    this.updateItem();
+  }
+
+  //El splice()método cambia el contenido de una matriz eliminando o reemplazando elementos existentes
+
+
 }
 
 

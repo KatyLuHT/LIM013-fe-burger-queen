@@ -1,4 +1,4 @@
-<h2 class="titulo">Resumen de pedido</h2>
+<h2   class="titulo">Resumen de pedido</h2>
 <table class="detail">
   <tr>
     <td class="items">Cliente:</td>
@@ -7,7 +7,7 @@
   </tr>
   <tr>
     <td class="items">Monto total: </td>
-    <td class="items"> S/. 7.00</td>
+    <td class="items"> S/. {{total}}</td>
   </tr>
 
   <br>
@@ -28,13 +28,13 @@
   <td class="counter">
     <tr>
       <!-- cada vez que escuches un click realiza la función addProducts(data.item)-->
-      <td> <button (click)= "addProducts(data.item)" (click)="subtotal(data.item)" (click)="hallarTotal()" id="add" class="fas fa-plus"></button></td> 
+      <td> <button (click)= "addProducts(data.item)"  id="add" class="fas fa-plus"></button></td> 
       <td>{{data.quantity}}</td>
-      <td> <button (click)="reduceProducts(data.item)" (click)="subtotal(data.item)" (click)="hallarTotal()" id="reduce" class="fas fa-minus"></button></td>
+      <td> <button (click)="reduceProducts(data.item)"  id="reduce" class="fas fa-minus"></button></td>
     </tr>
     </td>
-  <td >{{data.total}} </td>
-  <td><button  id="delete" class="fas fa-trash-alt"></button></td>
+  <td >{{data.subtotal}} </td>
+  <td><button  (click)="deleteRow(data.item)"id="delete" class="fas fa-trash-alt"></button></td>
   </tr>
   <tr>
     <td></td>
@@ -42,30 +42,7 @@
     <td></td>
     <td class="total">S/.{{total}}</td>
   </tr> 
-  <!-- <td><button (click)="deleteUser(data.id)">delete</button></td> -->
-
-  <!-- <tr>
-    <td> 01 </td>
-    <td> cafe con leche</td>
-  <td class="counter">
-  <tr>
-    <td> <button (click)= "addProducts()" id="add" class="fas fa-plus"></button></td>
-    <td>  {{nQuantity}}</td>
-    <td> <button (click)="reduceProducts()"id="reduce" class="fas fa-minus"></button></td>
-  </tr>
-  </td>
-  <td class="counter">
-    <tr>
-      <td>S/7.00</td>
-      <td><button  id="delete" class="fas fa-trash-alt"></button></td>
-    </tr>
-  </td>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td class="total">S/ 41.00</td>
-    </tr> -->
+ 
 </table>
 
 <!-- La <th>Celdas de encabezado: contiene información de encabezado (creada con el <th>elemento)
