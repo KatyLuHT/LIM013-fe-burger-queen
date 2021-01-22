@@ -34,8 +34,16 @@ export class ResumenItemComponent {
 //------------------Funcion  que envia orden--------------------------//
 error:string;
 sendOrder(){
+  this.orderDetail.forEach(el => {
+    if(el.category==='hamburguesa'){
+      delete el.kind;
+      delete el.additional;
+    }
+  });
   this.firestoreservice.createCollection(this.customerName, this.numOrder,this.status,this.minutes,this.seconds,this.orderDetail,this.total).then(()=>{
     alert('! Orden enviada a cocina con Exito!');
+    this.data.changeOrderDetail([]);
+    this.data.changeCustomerName('');
     this.orderDetail=this.orderDetail.map((el)=>el.quantity=0);
     this.route.navigate(["/home"])
   }).catch(()=>{
@@ -70,21 +78,20 @@ getNumOrders(){
     this.numOrder= '0'+this.numOrder;
   }
 }
-
   addProducts(_index: number) {
     this.orderDetail[_index].quantity++;
     this.calculateSubtotal(_index);
   }
-
   reduceProducts(_index: number) {
     if (this.orderDetail[_index].quantity > 1) {
+      this.orderDetail[_index].detailBurger.splice(-1,1);
       this.orderDetail[_index].quantity--;
       this.calculateSubtotal(_index);
     }
   }
 
   calculateSubtotal(_index: number) {
-    this.orderDetail[_index].subtotal = this.orderDetail[_index].quantity * this.orderDetail[_index].price;
+    this.orderDetail[_index].subtotal = this.orderDetail[_index].subtotal + this.orderDetail[_index].quantity * this.orderDetail[_index].price;
     this.calculateTotal();
   }
 
@@ -93,38 +100,65 @@ getNumOrders(){
     this.orderDetail.forEach(element => {
       this.total = (element.quantity * element.price) + this.total;
     });
-    console.log(this.total);
   }
+//Agregar precio a Adicionales
+changePriceAdd($event,_detailBurger:any,_data:any){
+    switch ($event.target.checked) {
+      case true:
+        _detailBurger.priceAdditional++;
+        _data.subtotal++;
+        _data.totalAdditional++;
+        break;
+      default:
+        if(_detailBurger.priceAdditional>0){
+        _detailBurger.priceAdditional--;
+        _data.subtotal--;
+        _data.totalAdditional--;
+      }
+        break;
+    }
+    this.calculateTotal();
+}
 
   deleteRow(_index: number) {
     this.orderDetail.splice(_index, 1);
     this.calculateTotal();
   }
+  //Eliminar fila de producto
+  deleteRowDB(_data:any,_index: number) {
+    _data.detailBurger.splice(_index, 1);
+    // contabilizar elementos de detalle de hamburguesa
+    _data.quantity=_data.detailBurger.length;
+  }
+
+  //agregar Hamburguesa
+  addDetailBurger(objProduct){
+    // Agregar adicionales a orderDetail solo si no existe elementos
+    if(objProduct.category === 'hamburguesa'){
+      
+      for (let i = 0; i <= objProduct.quantity - 1; i++) {
+        if(objProduct.detailBurger[i]===undefined){
+          objProduct.detailBurger.push({
+            nameProduct:objProduct.product,
+            kind:objProduct.kind[0],
+            additional:{cheese:false, egg:false },
+            priceAdditional:0,
+          });
+        }
+      }
+      objProduct.quantity=objProduct.detailBurger.length;
+    } 
+  }
+
+  // volver a home
+  backHome(){
+    this.route.navigate(["/home"]);
+
+  }
 
   ngOnInit(): void {
     this.data.currentOrderDetail.subscribe(order => this.orderDetail=order);
     this.data.currentCustomerName.subscribe(name => this.customerName=name);
-    this.orderDetail.forEach((element,index) => {
-      // Agregar adicionales a orderDetail
-      if(element.product === 'Hamburguesa simple'||element.product==='Hamburguesa doble'){
-        this.orderDetail[index].detailProduct=[];
-        for (let i = 0; i <= element.quantity - 1; i++) {
-          element.detailProduct.push({
-            nameProduct:element.product+' '+element.kind[0],
-            kind:element.kind[0],
-            additional:[],
-            priceAdditional:0,
-          });
-        }
-      } 
-    });
     this.calculateTotal();
   }
-
-  // public sumar(a:number,b:number):number{
-  //   return Number(a) + Number(b);
-  // }
-
 }
-
-// instancia cuando queremos usar funciones atributos etc que esten dentro de una clase.
