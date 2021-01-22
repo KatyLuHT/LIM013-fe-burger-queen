@@ -15,20 +15,19 @@ export class ResumenItemComponent {
  public ordersPedido=[];
  // numero de orden
  numOrder:any=0;
+ // estado de orden
  status:string='Pendiente';
  //array sincronizado
   orderDetail:any;
 // nombre de cliente 
-  customerName:string;
-// fecha
-  //date= new Date();
+  customerName:string
+// inicializa en 0 - hallar el total
   total: number = 0;
 // cronometro
   time:string;
   minutes:any = '00';
   seconds:any = '00';
-  chronometerDisplay = document.querySelector(`[data-chronometer]`)
-  chronometerCall
+
 
 //------------------Funcion  que envia orden--------------------------//
 error:string;
@@ -117,9 +116,7 @@ getNumOrders(){
     this.calculateTotal();
   }
 
-  // public sumar(a:number,b:number):number{
-  //   return Number(a) + Number(b);
-  // }
+
 
 }
 

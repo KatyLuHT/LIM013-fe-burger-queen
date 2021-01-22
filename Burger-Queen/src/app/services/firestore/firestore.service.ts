@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +15,12 @@ export class FirestoreService {
     return this.firestore.collection('BG-Products').snapshotChanges();
   }
   public getOrders() {
-    return this.firestore.collection('BG-Orders').snapshotChanges();
+    return this.firestore.collection('BG-Orders', ref => ref.orderBy("date", "desc")).snapshotChanges();
+
   }
+
+    //return this.firestore.collection('BG-Orders', ref => ref.where('status', '==', 'Pendiente').orderBy("status", "desc")).snapshotChanges();
+
   // Actualiza el status
     public updateStatus(orderId: any, status: string) {
       return this.firestore.collection('BG-Orders').doc(orderId).update({status});
@@ -30,7 +34,8 @@ export class FirestoreService {
       return this.firestore.collection('BG-Orders').doc(orderId).update({minutes,seconds});
     }
 
-  public createCollection(customerName,numOrder,status, minutes, seconds,detailOrder){
+    // crea colección 
+    public createCollection(customerName,numOrder,status, minutes, seconds,detailOrder){
     return this.firestore.collection('BG-Orders').add({
       customerName,
       date:new Date(),
@@ -44,4 +49,21 @@ export class FirestoreService {
     });
   }
 
+
+
+  // filta por estado de pedido
+  public StatesPending (){
+    return this.firestore.collection('BG-Orders', ref => ref.where('status', '==', 'Pendiente'));
+   }
+  
+
+
+   public StatestoDeliver (){
+    return this.firestore.collection('BG-Orders', ref => ref.where('status', '==', 'Por Entregar'));
+   }
+ 
+
+
 }
+
+
