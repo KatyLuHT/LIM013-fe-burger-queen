@@ -16,7 +16,17 @@ El proyecto **_BURGER QUEEN_** fue realizado con Angular, Sass y Firebase. Adem√
 - Versi√≥n Web
 
 ![prototipoaltad](https://raw.githubusercontent.com/KatyLuHT/LIM013-fe-burger-queen/main/Burger-Queen/src/img/burger-1.png)
-![img](/src/img/burger3.PNG).
+
+
+<p align="center">
+  <img src="/img/burger-1.png" width="350" title="hover text">
+  <img src="/img/burger-2.png" width="350" alt="accessibility text">
+</p>
+
+<!-- <p align="center">
+  <img  src="https://github.com/consuelogoche-1994/LIM013-fe-burger-queen/blob/main/Burger-Queen/src/assets/img/burgergif.gif?raw=true" alt="Travel-In">
+</p> -->
+
 <!-- ![prototipoaltad](src/img/burger-2.png)
 ![prototipoaltad](src/img/burger3.png) -->
 
