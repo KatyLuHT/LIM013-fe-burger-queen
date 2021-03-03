@@ -4,23 +4,24 @@
 ## Índice
 
 * [1. Resumen del proyecto](#1-resumen-del-proyecto)
-* [2. Historias de usuario](#2-historias-de-usuario)
-* [4. Diseño de Interfaz de Usuario](#4-diseño-de-interfaz-de-usuario)
-* [5. Test de usabilidad](#5-Test-de-usabilidad)
-* [6. Objetivos de aprendizaje](#6-Objetivos-de-aprendizaje)
+* [2. Diseño Web](#2-diseño-Web)
+* [3. Historias de usuario](#3-historias-de-usuario)
+* [4. Objetivos de aprendizaje](#4-Objetivos-de-aprendizaje)
  
 ## 1. Resumen del proyecto 
 El proyecto **_BURGER QUEEN_** fue realizado con Angular, Sass y Firebase. Además de ser un diseño responsive   cuenta con interfases en l que se puede tomar pedidos, enviar a cocina y ver el historial de las ventas del realizadas.
 
+
+## 2. Diseño Web
 - Versión Web
 
-![prototipoaltad](/src/img/burger-1.PNG)
-![prototipoaltad](/src/img/burger-2.PNG)
-![prototipoaltad](/src/img/burger3.PNG)
+![prototipoaltad](/src/img/burger-1.png)
+![prototipoaltad](/src/img/burger-2.png)
+![prototipoaltad](/src/img/burger3.png)
 
 
 
-## 2. Historias de Usuario
+## 3. Historias de Usuario
 
 
 #### [Historia de usuario 1] Mesero/a debe poder tomar pedido de cliente
