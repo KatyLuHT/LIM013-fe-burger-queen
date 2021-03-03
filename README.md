@@ -19,6 +19,9 @@ El proyecto **_BURGER QUEEN_** fue realizado con Angular, Sass y Firebase. Adem�
 ![prototipoaltad](/src/img/burger-2.png)
 ![prototipoaltad](/src/img/burger3.png)
 
+<p align="center">
+  <img  src="https://github.com/consuelogoche-1994/LIM013-fe-burger-queen/blob/main/Burger-Queen/src/assets/img/burgergif.gif?raw=true" alt="Travel-In">
+</p>
 
 
 ## 3. Historias de Usuario
@@ -74,7 +77,7 @@ que un pedido está listo para servirlo a un cliente.
 
 ***
 
-#### [Historia de usuario 3] Meserx debe ver pedidos listos para servir
+#### [Historia de usuario 3] Mesero debe ver pedidos listos para servir
 
 Yo como meserx quiero ver los pedidos que están preparados para entregarlos
 rápidamente a los clientes que las hicieron.
