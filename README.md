@@ -16,8 +16,9 @@ El proyecto **_BURGER QUEEN_** fue realizado con Angular, Sass y Firebase. Adem√
 - Versi√≥n Web
 
 ![prototipoaltad](src/img/burger-1.png)
-![prototipoaltad](src/img/burger-2.png)
-![prototipoaltad](src/img/burger3.png)
+[img](/src/img/burger3.png)
+<!-- ![prototipoaltad](src/img/burger-2.png)
+![prototipoaltad](src/img/burger3.png) -->
 
 
 
